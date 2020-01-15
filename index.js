@@ -7,10 +7,11 @@ const app = express();
 
 app.get('/api', (request, response) => {
   response.json({
-    shukkoku: 1565944200000,
-    touchaku: 1567400400000,
+    doku: 1585692000000,
+    sei: 1598911200000,
+    kikoku: 1617228000000,
     genzai: new Date().getTime(),
-    start: 1564592400000
+    start: 1567288800000
   });
 });
 

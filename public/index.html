@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>渡欧カウントダウン</title>
+    <title>帰国カウントダウン</title>
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1.0,width=device-width">
     <link rel="stylesheet" href="/bootstrap.min.css">
@@ -10,44 +10,62 @@
   </head>
   <body>
     <div class="container">
-      <h1 class="text-center mt-5 font-weight-bold d-none d-md-block">渡欧カウントダウン</h1>
-      <h2 class="text-center mt-5 font-weight-bold d-block d-md-none"><small>渡欧</small><br>カウントダウン</h2>
+      <h1 class="text-center mt-5 font-weight-bold d-none d-md-block">帰国カウントダウン</h1>
+      <h2 class="text-center mt-5 font-weight-bold d-block d-md-none"><small>帰国</small><br>カウントダウン</h2>
       <hr>
       <div id="app">
         <h3 v-if="loading" class="text-center">…接続中…<hr></h3>
         <div id="app-content" class="text-center" style="display: none;">
           <div v-if="ready">
-            <h3 v-if="shukkokuSumi" class="text-success">
-              出国済
+            <h3 v-if="dokuSumi" class="text-success">
+              独移住済
             </h3>
             <div v-else>
               <div>
-                出国まで<br>
-                <div class="d-inline"><span class="cd-number">{{shukkokuCd[0]}}</span>日</div>
-                <div class="d-inline"><span class="cd-number">{{shukkokuCd[1]}}</span>時間</div>
-                <div class="d-inline"><span class="cd-number">{{shukkokuCd[2]}}</span>分</div>
-                <div class="d-inline"><span class="cd-number">{{shukkokuCd[3]}}</span>秒</div>
+                独移住まで<br>
+                <div class="d-inline"><span class="cd-number">{{dokuCd[0]}}</span>日</div>
+                <div class="d-inline"><span class="cd-number">{{dokuCd[1]}}</span>時間</div>
+                <div class="d-inline"><span class="cd-number">{{dokuCd[2]}}</span>分</div>
+                <div class="d-inline"><span class="cd-number">{{dokuCd[3]}}</span>秒</div>
               </div>
               <div class="progress">
-                <div class="progress-bar bg-success" style="position: relative;" :style="{width: shukkokuPercent}">
+                <div class="progress-bar bg-success" style="position: relative;" :style="{width: dokuPercent}">
                     <span style="position: absolute; right: 0;">✈</span>
                 </div>
               </div>
             </div>
             <hr>
-            <h3 v-if="touchakuSumi" class="text-success">
-              到欧済
+            <h3 v-if="seiSumi" class="text-success">
+              西移住済
             </h3>
             <div v-else>
               <div>
-                到欧まで<br>
-                <div class="d-inline"><span class="cd-number">{{touchakuCd[0]}}</span>日</div>
-                <div class="d-inline"><span class="cd-number">{{touchakuCd[1]}}</span>時間</div>
-                <div class="d-inline"><span class="cd-number">{{touchakuCd[2]}}</span>分</div>
-                <div class="d-inline"><span class="cd-number">{{touchakuCd[3]}}</span>秒</div>
+                西移住まで<br>
+                <div class="d-inline"><span class="cd-number">{{seiCd[0]}}</span>日</div>
+                <div class="d-inline"><span class="cd-number">{{seiCd[1]}}</span>時間</div>
+                <div class="d-inline"><span class="cd-number">{{seiCd[2]}}</span>分</div>
+                <div class="d-inline"><span class="cd-number">{{seiCd[3]}}</span>秒</div>
               </div>
               <div class="progress">
-                  <div class="progress-bar bg-success" style="position: relative;" :style="{width: touchakuPercent}">
+                  <div class="progress-bar bg-success" style="position: relative;" :style="{width: seiPercent}">
+                      <span style="position: absolute; right: 0;">✈</span>
+                  </div>
+              </div>
+            </div>
+            <hr>
+            <h3 v-if="kikokuSumi" class="text-success">
+              帰国済
+            </h3>
+            <div v-else>
+              <div>
+                帰国まで<br>
+                <div class="d-inline"><span class="cd-number">{{kikokuCd[0]}}</span>日</div>
+                <div class="d-inline"><span class="cd-number">{{kikokuCd[1]}}</span>時間</div>
+                <div class="d-inline"><span class="cd-number">{{kikokuCd[2]}}</span>分</div>
+                <div class="d-inline"><span class="cd-number">{{kikokuCd[3]}}</span>秒</div>
+              </div>
+              <div class="progress">
+                  <div class="progress-bar bg-success" style="position: relative;" :style="{width: kikokuPercent}">
                       <span style="position: absolute; right: 0;">✈</span>
                   </div>
               </div>

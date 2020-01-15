@@ -18,8 +18,9 @@ const app = new Vue({
   data: {
     loading: false,
     clientDelay: 0,
-    shukkoku: null,
-    touchaku: null,
+    doku: null,
+    sei: null,
+    kikoku: null,
     now: null,
     interval: null,
     ready: false,
@@ -27,32 +28,42 @@ const app = new Vue({
     error: false
   },
   computed: {
-    shukkokuCd: function() {
-      return splitCountdown(this.shukkoku - this.now);
+    dokuCd: function() {
+      return splitCountdown(this.doku - this.now);
     },
-    shukkokuSumi: function() {
-      return this.now > this.shukkoku;
+    dokuSumi: function() {
+      return this.now > this.doku;
     },
-    shukkokuPercent: function() {
-      return (this.shukkokuSumi ? 100 : (this.now - this.start) / (this.shukkoku - this.start) * 100) + '%';
+    dokuPercent: function() {
+      return (this.dokuSumi ? 100 : (this.now - this.start) / (this.doku - this.start) * 100) + '%';
     },
-    touchakuCd: function() {
-      return splitCountdown(this.touchaku - this.now);
+    seiCd: function() {
+      return splitCountdown(this.sei - this.now);
     },
-    touchakuSumi: function() {
-      return this.now > this.touchaku;
+    seiSumi: function() {
+      return this.now > this.sei;
     },
-    touchakuPercent: function() {
-      return (this.touchakuSumi ? 100 : (this.now - this.start) / (this.touchaku - this.start) * 100) + '%';
+    seiPercent: function() {
+      return (this.seiSumi ? 100 : (this.now - this.start) / (this.sei - this.start) * 100) + '%';
     },
+    kikokuCd: function() {
+      return splitCountdown(this.kikoku - this.now);
+    },
+    kikokuSumi: function() {
+      return this.now > this.kikoku;
+    },
+    kikokuPercent: function() {
+      return (this.kikokuSumi ? 100 : (this.now - this.start) / (this.kikoku - this.start) * 100) + '%';
+    }
   },
   methods: {
     startup: function() {
       this.loading = true;
       const requestTime = new Date();
       axios('/api').then(response => {
-        this.shukkoku = response.data.shukkoku;
-        this.touchaku = response.data.touchaku;
+        this.doku = response.data.doku;
+        this.sei = response.data.sei;
+        this.kikoku = response.data.kikoku;
         this.clientDelay = (response.data.genzai - requestTime.getTime()) / 2;
         this.start = response.data.start;
         this.startCount();
