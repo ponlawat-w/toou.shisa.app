@@ -18,11 +18,11 @@
         <div id="app-content" class="text-center" style="display: none;">
           <div v-if="ready">
             <h3 v-if="dokuSumi" class="text-success">
-              独移住済
+              渡独済
             </h3>
             <div v-else>
               <div>
-                独移住まで<br>
+                渡独まで<br>
                 <div class="d-inline"><span class="cd-number">{{dokuCd[0]}}</span>日</div>
                 <div class="d-inline"><span class="cd-number">{{dokuCd[1]}}</span>時間</div>
                 <div class="d-inline"><span class="cd-number">{{dokuCd[2]}}</span>分</div>
@@ -36,11 +36,11 @@
             </div>
             <hr>
             <h3 v-if="seiSumi" class="text-success">
-              西移住済
+              帰西済
             </h3>
             <div v-else>
               <div>
-                西移住まで<br>
+                帰西まで<br>
                 <div class="d-inline"><span class="cd-number">{{seiCd[0]}}</span>日</div>
                 <div class="d-inline"><span class="cd-number">{{seiCd[1]}}</span>時間</div>
                 <div class="d-inline"><span class="cd-number">{{seiCd[2]}}</span>分</div>
