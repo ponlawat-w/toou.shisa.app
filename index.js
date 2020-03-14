@@ -7,7 +7,8 @@ const app = express();
 
 app.get('/api', (request, response) => {
   response.json({
-    doku: 1585692000000,
+    itijikikoku: 1584413400000,
+    doku: 1587333600000,
     sei: 1598911200000,
     kikoku: 1617228000000,
     genzai: new Date().getTime(),

@@ -18,6 +18,7 @@ const app = new Vue({
   data: {
     loading: false,
     clientDelay: 0,
+    itijikikoku: null,
     doku: null,
     sei: null,
     kikoku: null,
@@ -28,6 +29,15 @@ const app = new Vue({
     error: false
   },
   computed: {
+    itijikikokuCd: function() {
+      return splitCountdown(this.itijikikoku - this.now);
+    },
+    itijikikokuSumi: function() {
+      return this.now > this.itijikikoku;
+    },
+    itijikikokuPercent: function() {
+      return (this.itijikikokuSumi ? 100 : (this.now - this.start) / (this.itijikikoku - this.start) * 100) + '%';
+    },
     dokuCd: function() {
       return splitCountdown(this.doku - this.now);
     },
@@ -61,6 +71,7 @@ const app = new Vue({
       this.loading = true;
       const requestTime = new Date();
       axios('/api').then(response => {
+        this.itijikikoku = response.data.itijikikoku;
         this.doku = response.data.doku;
         this.sei = response.data.sei;
         this.kikoku = response.data.kikoku;

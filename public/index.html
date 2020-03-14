@@ -17,6 +17,24 @@
         <h3 v-if="loading" class="text-center">…接続中…<hr></h3>
         <div id="app-content" class="text-center" style="display: none;">
           <div v-if="ready">
+            <h3 v-if="itijikikokuSumi" class="text-success">
+              一時帰国済
+            </h3>
+            <div v-else>
+              <div>
+                一時帰国まで<br>
+                <div class="d-inline"><span class="cd-number">{{itijikikokuCd[0]}}</span>日</div>
+                <div class="d-inline"><span class="cd-number">{{itijikikokuCd[1]}}</span>時間</div>
+                <div class="d-inline"><span class="cd-number">{{itijikikokuCd[2]}}</span>分</div>
+                <div class="d-inline"><span class="cd-number">{{itijikikokuCd[3]}}</span>秒</div>
+              </div>
+              <div class="progress">
+                <div class="progress-bar bg-success" style="position: relative;" :style="{width: itijikikokuPercent}">
+                    <span style="position: absolute; right: 0;">✈</span>
+                </div>
+              </div>
+            </div>
+            <hr>
             <h3 v-if="dokuSumi" class="text-success">
               渡独済
             </h3>
