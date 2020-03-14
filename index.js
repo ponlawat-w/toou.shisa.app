@@ -7,7 +7,7 @@ const app = express();
 
 app.get('/api', (request, response) => {
   response.json({
-    kinkyukikoku: 1584413400000,
+    itijikikoku: 1584413400000,
     doku: 1587333600000,
     sei: 1598911200000,
     kikoku: 1617228000000,
